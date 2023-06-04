@@ -12,6 +12,13 @@ const routes: Routes = [
 		loadChildren: () =>
 			import('./templates/table/table.module').then(m => m.TableModule),
 	},
+	{
+		path: 'search',
+		loadChildren: () =>
+			import('./templates/search/search.module').then(
+				m => m.SearchModule
+			),
+	},
 ];
 
 @NgModule({

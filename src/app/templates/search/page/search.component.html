@@ -1,0 +1,42 @@
+<div class="container search-table">
+	<div class="search-box">
+		<form [formGroup]="searchField">
+			<div class="row">
+				<div class="col-md-9">
+					<input
+						type="text"
+						formControlName="queryField"
+						class="form-control"
+						placeholder="Pesquisar..." />
+				</div>
+
+				<div class="col-auto">
+					<button class="btn btn-lg btn-success" (click)="onSearch()">
+						Pesquisar
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="search-list">
+		<h3 *ngIf="total > 0">{{ total }} encontrados</h3>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Version</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let result of result$ | async">
+					<!-- <td>{{ result.name }}</td>
+					<td>{{ result.version }}</td> -->
+
+					{{
+						result | json
+					}}
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
